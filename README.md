@@ -1,4 +1,4 @@
-# Finals-Lab-Task-2
+# Finals-Lab-Task-1
 Final Task 1: MySQL Portfolio – Company Database
 
 This portfolio covers the basics of MySQL by creating a company database. It includes writing SQL queries, setting up tables, and showing how the tables are related through schemas or ER diagrams. I’ve also included the SQL code used to build the database structure.
