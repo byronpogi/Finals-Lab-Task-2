@@ -1,45 +1,68 @@
-# Finals-Lab-Task-1
-Final Task 1: MySQL Portfolio – Company Database
+Final Task 2
 
-This portfolio covers the basics of MySQL by creating a company database. It includes writing SQL queries, setting up tables, and showing how the tables are related through schemas or ER diagrams. I’ve also included the SQL code used to build the database structure.
+This portfolio showcases my understanding of MySQL database creation through a simplified system for managing student assignment submissions. It outlines the step-by-step process of creating tables for students, assignments, and their submissions. The relational schema is designed using appropriate data types, relationships, and constraints such as primary keys, foreign keys, and composite keys to ensure data integrity and consistency.
 
-Task 1: Employees Table
-employee_id: INT, auto-increment, primary key
+1. Student Table Creation:
 
-employee_name: VARCHAR(255), not null
+The username field is defined as a VARCHAR(50).
 
-manager_id: INT, foreign key referencing employee_id in the same table
+username serves as the primary key to uniquely identify each student.
 
-Task 2: Departments Table
-department_id: INT, auto-increment, primary key
+2. Assignment Table Creation:
 
-department_name: VARCHAR(255), not null
+The shortname field is set as a VARCHAR(50) and acts as the primary key.
 
-Task 3: Employee_Departments Table
-employee_id: INT, foreign key from employees
+The due_date field is a DATE and cannot be null.
 
-department_id: INT, foreign key from departments
+The url field is a VARCHAR(255) and can be left null.
 
-Composite primary key on both columns
+3. Submission Table Creation:
 
-Task 4: Employee_Projects Table
-employee_id: INT, foreign key from employees
+The fields username and shortname are both defined as VARCHAR(50).
 
-project_name: VARCHAR(255), not null
+version is defined as an INT.
 
-Task 5: Managers Table
-manager_id: INT, auto-increment, primary key
+submit_date is a DATE and must not be null.
 
-employee_id: INT, foreign key from employees
+data is stored in a TEXT field.
 
-#Screenshots
-![Image](https://github.com/user-attachments/assets/92ba29f4-20b6-4ab1-b17d-43aff67cd06b)
-![Image](https://github.com/user-attachments/assets/5d19c68c-b932-43b4-8673-e0ca6eb47fef)
-![Image](https://github.com/user-attachments/assets/b23fedb5-f3e6-495a-9634-d87f4d3396c6)
-![Image](https://github.com/user-attachments/assets/5d47f6fd-d030-454d-80e8-5412092b62a7)
-![Image](https://github.com/user-attachments/assets/89cfb204-3c69-43fa-a059-edce77df032b)
-![Image](https://github.com/user-attachments/assets/f68505c0-b1bd-43fd-8807-f1e55b9b96b2)
-![Image](https://github.com/user-attachments/assets/1297d0f3-4bf2-4c01-b767-0370add16d36)
-![Image](https://github.com/user-attachments/assets/a6dafbcb-8e2f-4e98-a2b2-111e1604bb71)
-![Image](https://github.com/user-attachments/assets/ea437389-a691-4e56-b20f-89910b66e434)
-![Image](https://github.com/user-attachments/assets/30dda039-7410-45fa-afeb-082fbcd96677)
+A composite primary key is set on (username, shortname, version) to uniquely identify each submission attempt.
+
+Foreign key constraints are added to link username to the student table and shortname to the assignment table.
+
+Table Relationships Overview:
+
+Student Table
+
+Primary Key: username
+
+Relationship: One student can make multiple submissions (One-to-Many with the submission table).
+
+Assignment Table
+
+Primary Key: shortname
+
+Relationship: Each assignment can receive multiple submissions (One-to-Many with the submission table).
+
+Submission Table
+
+Composite Primary Key: (username, shortname, version)
+
+Relationships:
+
+Each submission is linked to a single student (Many-to-One with student).
+
+Each submission is for a single assignment (Many-to-One with assignment).
+
+This design effectively captures a Many-to-Many relationship between students and assignments, with the version field allowing multiple submission attempts per student-assignment pair.
+
+## Screenshots
+
+![Image](https://github.com/user-attachments/assets/3230a3a2-5300-4ea8-a798-dc7e887bcd68)
+![Image](https://github.com/user-attachments/assets/49df2d61-b4cc-4b53-9855-b2cde686accc)
+![Image](https://github.com/user-attachments/assets/111aeca8-428b-4fed-a6df-c3b70df27444)
+![Image](https://github.com/user-attachments/assets/50cc0bfa-026f-45b1-bc1a-4b2ceb90db73)
+![Image](https://github.com/user-attachments/assets/3599fdcb-5df7-4f4c-8c2e-63a8c3d9b8f8)
+![Image](https://github.com/user-attachments/assets/c71c658b-7c6f-4068-8436-ee0bad8010f9)
+![Image](https://github.com/user-attachments/assets/f039ba1a-18dd-4196-92ea-f83b7a8d464b)
+![Image](https://github.com/user-attachments/assets/1cddcc96-3080-427c-9376-7455ba11df62)
